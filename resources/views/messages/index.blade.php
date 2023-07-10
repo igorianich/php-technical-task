@@ -11,6 +11,12 @@
     <h1 class="text-2xl font-bold mb-4">Messages</h1>
 </div>
 
+@if (session('success'))
+    <div class="flex justify-center mt-4">
+        <div class="bg-green-500 text-white py-2 px-4 rounded">{{ session('success') }}</div>
+    </div>
+@endif
+
 <div class="flex justify-center mb-8">
     <form action="{{ route('messages.store') }}" method="POST" class="w-full max-w-md bg-white shadow-md rounded-lg overflow-hidden">
         @csrf
