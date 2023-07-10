@@ -15,4 +15,4 @@ use App\Http\Controllers\MessageController;
 */
 
 Route::get('/', fn () => redirect()->route('messages.index'));
-Route::resource('messages', MessageController::class)->only(['index', 'store']);
+Route::resource('messages', MessageController::class)->only(['index', 'store', 'destroy']);

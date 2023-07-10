@@ -57,6 +57,7 @@
             <th class="py-2 px-4 border-b">Email</th>
             <th class="py-2 px-4 border-b">Message</th>
             <th class="py-2 px-4 border-b">Created at</th>
+            <th class="py-2 px-4 border-b">Delete</th>
         </tr>
         </thead>
         <tbody>
@@ -66,6 +67,16 @@
                 <td class="py-2 px-4 border-b">{{ $message->email }}</td>
                 <td class="py-2 px-4 border-b word-break break-all">{{ $message->message }}</td>
                 <td class="py-2 px-4 border-b whitespace-nowrap">{{ $message->created_at->format('Y-m-d H:i:s') }}</td>
+                <td class="py-2 px-4 border-b">
+                    <form action="{{ route('messages.destroy', $message->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"
+                                class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
+                            Delete
+                        </button>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>

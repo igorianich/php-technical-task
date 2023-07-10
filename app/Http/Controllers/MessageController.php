@@ -31,4 +31,11 @@ class MessageController extends Controller
 
         return redirect()->route('messages.index')->with('success', 'Message created successfully.');
     }
+
+    public function destroy(Message $message)
+    {
+        $message->delete();
+
+        return redirect()->route('messages.index')->with('success', 'Message deleted successfully.');
+    }
 }
